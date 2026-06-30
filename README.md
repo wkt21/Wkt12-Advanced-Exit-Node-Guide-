@@ -4,6 +4,17 @@
 Using a Mobile Device as a Tailscale Exit Node on a LAN
 
 A complete deep‑dive into routing, NAT, DNS, MagicDNS, diagnostics, and benchmarking.
+
+
+• Advanced architecture
+• Routing + NAT
+• DNS + MagicDNS
+• Ping diagnostics
+• Troubleshooting
+• Benchmarking
+• Guided Links embedded throughout
+---
+
 ---
 
 
@@ -60,35 +71,38 @@ Benchmark Interpretation:  If diagnostics show low latency but low throughput, t
 
 Part 3: Essay Questions
 Instructions:  Use the provided documentation to develop comprehensive responses to the following prompts.
+
 The Impact of Hardware Constraints on Exit Node Performance:  Analyze how mobile-specific limitations—such as CPU power, Wi-Fi throughput, and battery management—affect the performance of a Tailscale exit node compared to a wired alternative.
 
 Diagnostic Methodology for Network Instability:  Detail a step-by-step diagnostic plan for a user experiencing "Bad" network performance (as defined by the benchmark table), explaining which tools (ping, iperf3, dig) to use and what the results indicate.
 
 
 The Role of MagicDNS in Tailnet Architecture:  Discuss the advantages and disadvantages of MagicDNS, specifically addressing why a network administrator might choose to disable it in favor of tools like Pi-hole or custom DNS servers.
-Loopback Behavior and LAN Stability:  Explain the phenomenon of loopback behavior when an exit node is on the same LAN as the client and evaluate why this behavior is considered expected and stable rather than a routing error.
+Loopback Behavior and LAN Stability:
+
+Explain the phenomenon of loopback behavior when an exit node is on the same LAN as the client and evaluate why this behavior is considered expected and stable rather than a routing error.
+
 NAT and Forwarding Mechanics:  Compare the flow of traffic through the phone’s NAT and the router’s NAT. Explain the necessity of NAT masquerading and interface forwarding in maintaining a transparent connection for the client.
 
 Part 4: Glossary of Key Terms
 Term,Definition
+
 DERP Relay,"A relay used by Tailscale to facilitate connections when a direct WireGuard path cannot be established, often resulting in higher latency."
+
 Double NAT,A network configuration where two separate NAT processes occur—first at the exit node and then at the local router—before traffic reaches the public internet.
+
 iperf3,A benchmarking tool used to measure the maximum achievable throughput (bandwidth) of the exit node.
+
 Loopback Behavior,"A scenario where traffic leaves a device, hits the local router, and returns to the same device before being processed through the Tailscale tunnel."
+
 MagicDNS,"A Tailscale feature that provides automatic hostname resolution, search domains, and encrypted DNS within a tailnet."
+
 MTU Mismatch,A configuration error regarding the Maximum Transmission Unit size that can lead to packet loss or connection issues.
+
 NAT Masquerading,"A process that allows the exit node to mask the source IP of client traffic with its own LAN IP, enabling proper routing back from the local network."
+
 Split DNS,A DNS configuration that allows different resolution rules for internal network zones versus public internet queries.
+
 tailscale0,The virtual network interface created by Tailscale on a device to handle tailnet traffic.
 WireGuard,"The underlying VPN protocol used by Tailscale to provide secure, encrypted communication between peers."
 
-
-
-• Advanced architecture
-• Routing + NAT
-• DNS + MagicDNS
-• Ping diagnostics
-• Troubleshooting
-• Benchmarking
-• Guided Links embedded throughout
----
